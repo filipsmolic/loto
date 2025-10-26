@@ -18,7 +18,7 @@ app = FastAPI(title="Loto API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:4200",
-                   "https://loto-backend-zd7t.onrender.com"],
+                   "https://loto-frontend-site.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
