@@ -5,5 +5,5 @@ export const environment = {
     clientId: 'PI14wUOXsCJvcYe9289cxDJMfAGF9OI1',
     audience: 'https://my-loto-api/',
   },
-  apiBaseUrl: 'https://YOUR_BACKEND_URL',
+  apiBaseUrl: 'https://loto-backend-zd7t.onrender.com',
 };
