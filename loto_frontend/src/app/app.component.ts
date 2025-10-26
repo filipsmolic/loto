@@ -20,6 +20,10 @@ export class AppComponent {
   }
 
   logout() {
-    this.auth.logout();
+    this.auth.logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
   }
 }
