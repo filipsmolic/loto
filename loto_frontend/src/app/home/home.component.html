@@ -1,0 +1,38 @@
+<div class="welcome">
+  <h2>Loto 6/45</h2>
+  <p>Dobrodošli u sustav za uplatu loto listića</p>
+</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <h3>Uplaćeni listići</h3>
+    <div class="value">{{ ticketCount }}</div>
+  </div>
+
+  <div class="info-card" *ngIf="hasResults">
+    <h3>Izvučeni brojevi</h3>
+    <div class="numbers-grid">
+      <div class="number-ball" *ngFor="let num of results">{{ num }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="results-section" *ngIf="hasResults">
+  <h3>Izvučeni brojevi u trenutnom kolu</h3>
+  <div class="numbers-grid">
+    <div class="number-ball" *ngFor="let num of results">{{ num }}</div>
+  </div>
+</div>
+
+<div class="action-card" *ngIf="(auth.isAuthenticated$ | async) && isActiveRound">
+  <p>Možete uplatiti listić za trenutno kolo</p>
+  <a routerLink="/ticket-form" class="btn btn-primary">Uplatite listić</a>
+</div>
+
+<div class="status-box pending" *ngIf="!isActiveRound && (auth.isAuthenticated$ | async)">
+  Trenutno nema aktivnog kola za uplatu listića
+</div>
+
+<div class="status-box info" *ngIf="!(auth.isAuthenticated$ | async)">
+  Prijavite se kako biste mogli uplatiti listić
+</div>

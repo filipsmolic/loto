@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a class="logo" routerLink="/">Loto App</a>
+    <div class="nav-links">
+      <div class="user-info" *ngIf="auth.user$ | async as user">
+        <span class="user-name">{{ user.name || user.email }}</span>
+      </div>
+      <a routerLink="/">Home</a>
+      <button (click)="login()" *ngIf="!(auth.isAuthenticated$ | async)">Prijava</button>
+      <button (click)="logout()" *ngIf="auth.isAuthenticated$ | async">Odjava</button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Uplata Listića</h2>
+  <p class="subtitle">Unesite vaše podatke i odaberite 6 brojeva od 1 do 45</p>
+
+  <div class="form-card">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="ownerId">Broj osobne iskaznice / putovnice</label>
+        <input
+          type="text"
+          id="ownerId"
+          [(ngModel)]="ownerId"
+          name="ownerId"
+          placeholder="Npr. 12345678901"
+          required
+        />
+        <span class="hint">Koristite ispravne podatke za identifikaciju</span>
+      </div>
+
+      <div class="form-group">
+        <label for="numbers">Vaši brojevi (6-10 brojeva, odvojeni zarezom)</label>
+        <input
+          type="text"
+          id="numbers"
+          [(ngModel)]="numbers"
+          name="numbers"
+          placeholder="Npr. 5, 12, 23, 34, 41, 45"
+          required
+        />
+        <span class="hint">Odaberite brojeve između 1 i 45</span>
+      </div>
+
+      <div class="error-box" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full">
+        Uplatite listić
+      </button>
+    </form>
+
+    <div class="qr-success" *ngIf="qrCodeUrl">
+      <h3>Listić uspješno uplaćen!</h3>
+      <div class="qr-code-wrapper">
+        <img [src]="qrCodeUrl" alt="QR Code" />
+      </div>
+      <p>Skenirajte QR kod kako biste pregledali listić</p>
+      <div class="scan-instruction">
+        Skenirajte ili pohranite ovaj kod
+      </div>
+    </div>
+  </div>
+</div>
