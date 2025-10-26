@@ -95,7 +95,7 @@ async def create_ticket(
     db.commit()
     db.refresh(ticket)
 
-    qr_url = f"http://localhost:8000/ticket/{ticket.id}"
+    qr_url = f"https://loto-backend-zd7t.onrender.com/{ticket.id}"
     return make_qr_image(qr_url)
 
 
