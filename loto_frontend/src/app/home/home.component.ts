@@ -31,7 +31,9 @@ export class HomeComponent implements OnInit {
       next: (data) => {
         this.ticketCount = data.ticket_count || 0;
         this.results = data.results || null;
-        this.isActiveRound = !data.active_round?.closed;
+        this.isActiveRound = data.active_round
+          ? !data.active_round.closed
+          : false;
       },
       error: (err) => {
         console.error('Error loading round status:', err);
