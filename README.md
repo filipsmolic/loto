@@ -1,0 +1,1 @@
+Loto app project for advanced web development class.
